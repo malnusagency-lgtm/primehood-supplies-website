@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Contact Prime Hood Supplies for sports equipment inquiries. Visit our Nairobi office or reach us via phone, email, or WhatsApp.">
+    <title>Contact Us | Prime Hood Supplies</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>">
+
+    <style>
+        .contact-hero {
+            background: var(--gradient-dark);
+            padding: 160px 0 80px;
+        }
+
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-6);
+            margin-top: -80px;
+            position: relative;
+            z-index: 10;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: var(--space-8);
+            border-radius: var(--radius-xl);
+            text-align: center;
+            box-shadow: var(--shadow-lg);
+            transition: all var(--transition-base);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .contact-card-icon {
+            width: 70px;
+            height: 70px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto var(--space-4);
+            font-size: 28px;
+        }
+
+        .contact-card h4 {
+            margin-bottom: var(--space-2);
+        }
+
+        .contact-card p {
+            font-size: var(--text-sm);
+            color: var(--gray-500);
+            margin-bottom: var(--space-3);
+        }
+
+        .contact-card a {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .contact-card a:hover {
+            color: var(--accent);
+        }
+
+        .contact-main {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: var(--space-12);
+            align-items: start;
+        }
+
+        .map-container {
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            height: 400px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .payment-section {
+            margin-top: var(--space-8);
+            padding: var(--space-6);
+            background: var(--gray-100);
+            border-radius: var(--radius-xl);
+        }
+
+        .payment-section h4 {
+            margin-bottom: var(--space-4);
+            font-size: var(--text-lg);
+        }
+
+        .payment-options {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--space-4);
+        }
+
+        .payment-option {
+            display: flex;
+            align-items: center;
+            gap: var(--space-3);
+            padding: var(--space-4);
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--gray-200);
+        }
+
+        .payment-option-icon {
+            width: 48px;
+            height: 48px;
+            background: var(--gradient-primary);
+            border-radius: var(--radius-md);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .payment-option-info h5 {
+            font-size: var(--text-sm);
+            margin-bottom: 2px;
+        }
+
+        .payment-option-info p {
+            font-size: var(--text-sm);
+            color: var(--gray-600);
+            margin: 0;
+            font-family: var(--font-heading);
+            font-weight: 600;
+        }
+
+        .office-hours {
+            margin-top: var(--space-6);
+        }
+
+        .office-hours h4 {
+            margin-bottom: var(--space-4);
+        }
+
+        .hours-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-2);
+        }
+
+        .hours-item {
+            display: flex;
+            justify-content: space-between;
+            padding: var(--space-3);
+            background: var(--gray-100);
+            border-radius: var(--radius-md);
+            font-size: var(--text-sm);
+        }
+
+        .hours-item span:last-child {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        @media (max-width: 1200px) {
+            .contact-cards {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 992px) {
+            .contact-main {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .contact-cards {
+                grid-template-columns: 1fr;
+                margin-top: -40px;
+            }
+
+            .payment-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">P</div>
+                <div class="logo-text">Prime<span>Hood</span></div>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="equipment.html">Equipment</a>
+                <a href="contact.html" class="active">Contact</a>
+                <div class="nav-cta">
+                    <a href="contact.html" class="btn btn-primary btn-sm">Get Quote</a>
+                </div>
+            </div>
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="contact-hero">
+        <div class="container text-center">
+            <span class="overline" style="color: var(--accent);">Get In Touch</span>
+            <h1 style="color: var(--white); margin-bottom: var(--space-4);">Contact Us</h1>
+            <p style="color: var(--gray-300); max-width: 600px; margin: 0 auto; font-size: var(--text-lg);">
+                Have questions or ready to place an order? We're here to help you equip your team for success.
+            </p>
+        </div>
+    </section>
+
+    <!-- Contact Cards -->
+    <section class="section" style="padding-top: 0;">
+        <div class="container">
+            <div class="contact-cards stagger">
+                <div class="contact-card">
+                    <div class="contact-card-icon">📞</div>
+                    <h4>Call Us</h4>
+                    <p>Speak directly with our team</p>
+                    <a href="tel:+254722801926">+254 722 801 926</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card-icon">✉️</div>
+                    <h4>Email Us</h4>
+                    <p>Send us your inquiries</p>
+                    <a href="mailto:primehoodsupplies@gmail.com">primehoodsupplies@gmail.com</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card-icon">💬</div>
+                    <h4>WhatsApp</h4>
+                    <p>Quick response guaranteed</p>
+                    <a href="https://wa.me/254722801926">Chat Now</a>
+                </div>
+                <div class="contact-card">
+                    <div class="contact-card-icon">📍</div>
+                    <h4>Visit Us</h4>
+                    <p>Rehema Place, Ngong Rd</p>
+                    <a href="#map">Get Directions</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Contact Section -->
+    <section class="section" style="padding-top: var(--space-8);">
+        <div class="container">
+            <div class="contact-main">
+
+                <!-- Left Column: Info & Map -->
+                <div class="slide-in-left">
+                    <h2>Our Office</h2>
+                    <p style="color: var(--gray-600); margin-bottom: var(--space-6);">
+                        Visit our showroom to see our full range of sports equipment and discuss your requirements in
+                        person.
+                    </p>
+
+                    <div class="contact-details" style="margin-bottom: var(--space-8);">
+                        <div class="contact-item"
+                            style="display: flex; gap: var(--space-4); margin-bottom: var(--space-4);">
+                            <div
+                                style="width: 48px; height: 48px; background: rgba(0, 102, 204, 0.1); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;">
+                                📍</div>
+                            <div>
+                                <h5 style="margin-bottom: 4px; font-size: var(--text-base);">Office Address</h5>
+                                <p
+                                    style="margin: 0; color: var(--gray-600); font-size: var(--text-sm); line-height: 1.6;">
+                                    Rehema Place Block F Suite 49,<br>
+                                    Opposite Nakumatt Prestige,<br>
+                                    Ngong Road Ring Road Junction,<br>
+                                    Nairobi, Kenya
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="contact-item"
+                            style="display: flex; gap: var(--space-4); margin-bottom: var(--space-4);">
+                            <div
+                                style="width: 48px; height: 48px; background: rgba(0, 102, 204, 0.1); border-radius: var(--radius-lg); display: flex; align-items: center; justify-content: center; font-size: 20px; flex-shrink: 0;">
+                                📦</div>
+                            <div>
+                                <h5 style="margin-bottom: 4px; font-size: var(--text-base);">Postal Address</h5>
+                                <p style="margin: 0; color: var(--gray-600); font-size: var(--text-sm);">
+                                    P.O. Box 5403-00200<br>
+                                    Nairobi, Kenya
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Map -->
+                    <div class="map-container" id="map">
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.819373833946!2d36.78879841475388!3d-1.2840299990576378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182f10d6a0c2a16b%3A0x8ec9e7c2a8b4e45d!2sNgong%20Rd%2C%20Nairobi!5e0!3m2!1sen!2ske!4v1673655890123!5m2!1sen!2ske"
+                            allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                    </div>
+
+                    <!-- Office Hours -->
+                    <div class="office-hours">
+                        <h4>Business Hours</h4>
+                        <div class="hours-list">
+                            <div class="hours-item">
+                                <span>Monday - Friday</span>
+                                <span>8:00 AM - 6:00 PM</span>
+                            </div>
+                            <div class="hours-item">
+                                <span>Saturday</span>
+                                <span>9:00 AM - 4:00 PM</span>
+                            </div>
+                            <div class="hours-item">
+                                <span>Sunday</span>
+                                <span>Closed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Payment Methods -->
+                    <div class="payment-section">
+                        <h4>💳 Payment Methods</h4>
+                        <div class="payment-options">
+                            <div class="payment-option">
+                                <div class="payment-option-icon">📱</div>
+                                <div class="payment-option-info">
+                                    <h5>M-Pesa Paybill</h5>
+                                    <p>522533</p>
+                                </div>
+                            </div>
+                            <div class="payment-option">
+                                <div class="payment-option-icon">🏦</div>
+                                <div class="payment-option-info">
+                                    <h5>KCB Till Number</h5>
+                                    <p>7950831</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p
+                            style="font-size: var(--text-xs); color: var(--gray-500); margin-top: var(--space-4); margin-bottom: 0;">
+                            Account Name: <strong>PRIMEHOOD SUPPLIES</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Right Column: Contact Form -->
+                <div class="slide-in-right">
+                    <div class="contact-form-wrapper"
+                        style="background: var(--gray-100); border: 1px solid var(--gray-200); padding: var(--space-10); border-radius: var(--radius-2xl);">
+                        <h3 style="margin-bottom: var(--space-2);">Send Us a Message</h3>
+                        <p style="color: var(--gray-600); margin-bottom: var(--space-6);">Fill out the form and we'll
+                            get back to you within 24 hours.</p>
+
+                        <form class="contact-form" id="contactForm" style="display: grid; gap: var(--space-5);">
+                            <div class="form-row"
+                                style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-5);">
+                                <div class="form-group"
+                                    style="display: flex; flex-direction: column; gap: var(--space-2);">
+                                    <label for="firstName"
+                                        style="font-size: var(--text-sm); font-weight: 500; color: var(--gray-700);">First
+                                        Name *</label>
+                                    <input type="text" id="firstName" name="firstName" placeholder="John" required
+                                        style="padding: var(--space-4); background: var(--white); border: 1px solid var(--gray-300); border-radius: var(--radius-lg); font-size: var(--text-base);">
+                                </div>
+                                <div class="form-group"
+                                    style="display: flex; flex-direction: column; gap: var(--space-2);">
+                                    <label for="lastName"
+                                        style="font-size: var(--text-sm); font-weight: 500; color: var(--gray-700);">Last
+                                        Name *</label>
+                                    <input type="text" id="lastName" name="lastName" placeholder="Doe" required
+                                        style="padding: var(--space-4); background: var(--white); border: 1px solid var(--gray-300); border-radius: var(--radius-lg); font-size: var(--text-base);">
+                                </div>
+                            </div>
+
+                            <div class="form-group" style="display: flex; flex-direction: column; gap: var(--space-2);">
+                                <label for="email"
+                                    style="font-size: var(--text-sm); font-weight: 500; color: var(--gray-700);">Email
+                                    Address *</label>
+                                <input type="email" id="email" name="email" placeholder="john@example.com" required
+                                    style="padding: var(--space-4); background: var(--white); border: 1px solid var(--gray-300); border-radius: var(--radius-lg); font-size: var(--text-base);">
+                            </div>
+
+                            <div class="form-group" style="display: flex; flex-direction: column; gap: var(--space-2);">
+                                <label for="phone"
+                                    style="font-size: var(--text-sm); font-weight: 500; color: var(--gray-700);">Phone
+                                    Number *</label>
+                                <input type="tel" id="phone" name="phone" placeholder="+254 7XX XXX XXX" required
+                                    style="padding: var(--space-4); background: var(--white); border: 1px solid var(--gray-300); border-radius: var(--radius-lg); font-size: var(--text-base);">
+                            </div>
+
+                            <div class="form-group" style="display: flex; flex-direction: column; gap: var(--space-2);">
+                                <label for="organization"
+                                    style="font-size: var(--text-sm); font-weight: 500; color: var(--gray-700);">Organization/Institution</label>
+                                <input type="text" id="organization" name="organization"
+                                    placeholder="School, Club, or Company name"
+                                    style="padding: var(--space-4); background: var(--white); border: 1px solid var(--gray-300); border-radius: var(--radius-lg); font-size: var(--text-base);">
+                            </div>
+
+                            <div class="form-group" style="display: flex; flex-direction: column; gap: var(--space-2);">
+                                <label for="service"
+                                    style="font-size: var(--text-sm); font-weight: 500; color: var(--gray-700);">Service
+                                    Interested In *</label>
+                                <select id="service" name="service" required
+                                    style="padding: var(--space-4); background: var(--white); border: 1px solid var(--gray-300); border-radius: var(--radius-lg); font-size: var(--text-base); cursor: pointer;">
+                                    <option value="">Select a service...</option>
+                                    <option value="school-uniforms">School Uniforms & PE Kits</option>
+                                    <option value="sports-equipment">Sports Equipment</option>
+                                    <option value="team-outfitting">Team Outfitting</option>
+                                    <option value="trophies">Trophies & Medals</option>
+                                    <option value="branding">Branding & Signage</option>
+                                    <option value="bulk-order">Bulk/Wholesale Order</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="display: flex; flex-direction: column; gap: var(--space-2);">
+                                <label for="quantity"
+                                    style="font-size: var(--text-sm); font-weight: 500; color: var(--gray-700);">Estimated
+                                    Quantity</label>
+                                <select id="quantity" name="quantity"
+                                    style="padding: var(--space-4); background: var(--white); border: 1px solid var(--gray-300); border-radius: var(--radius-lg); font-size: var(--text-base); cursor: pointer;">
+                                    <option value="">Select quantity range...</option>
+                                    <option value="1-10">1 - 10 items</option>
+                                    <option value="11-50">11 - 50 items</option>
+                                    <option value="51-100">51 - 100 items</option>
+                                    <option value="101-500">101 - 500 items</option>
+                                    <option value="500+">500+ items (Wholesale)</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group" style="display: flex; flex-direction: column; gap: var(--space-2);">
+                                <label for="message"
+                                    style="font-size: var(--text-sm); font-weight: 500; color: var(--gray-700);">Your
+                                    Message *</label>
+                                <textarea id="message" name="message" rows="5"
+                                    placeholder="Tell us about your requirements, specific products needed, delivery timeline, etc."
+                                    required
+                                    style="padding: var(--space-4); background: var(--white); border: 1px solid var(--gray-300); border-radius: var(--radius-lg); font-size: var(--text-base); resize: vertical; min-height: 120px;"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-lg" style="width: 100%;">
+                                Send Message →
+                            </button>
+
+                            <p
+                                style="font-size: var(--text-xs); color: var(--gray-500); text-align: center; margin: 0;">
+                                By submitting this form, you agree to be contacted regarding your inquiry.
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Contact CTA -->
+    <section class="section section-dark" id="quick-contact">
+        <div class="container text-center">
+            <h2>Prefer a Quick Chat?</h2>
+            <p style="max-width: 600px; margin: var(--space-6) auto var(--space-8);">
+                For urgent inquiries or quick questions, reach us directly via phone or WhatsApp.
+            </p>
+            <div class="flex justify-center gap-4" style="flex-wrap: wrap;">
+                <a href="https://wa.me/254722801926" class="btn btn-primary btn-lg" style="background: #25D366;">💬
+                    WhatsApp Now</a>
+                <a href="tel:+254722801926" class="btn btn-secondary btn-lg">📞 Call: 0722 801 926</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">P</div>
+                        <div class="logo-text">Prime<span>Hood</span></div>
+                    </a>
+                    <p>Kenya's premier sports equipment supplier. Quality gear from global brands.</p>
+                    <div class="payment-methods">
+                        <span>Pay via:</span>
+                        <div class="payment-badge">📱 M-Pesa: 522533</div>
+                        <div class="payment-badge">🏦 KCB: 7950831</div>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h5>Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="services.html">Our Services</a>
+                        <a href="equipment.html">Equipment</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h5>Services</h5>
+                    <div class="footer-links">
+                        <a href="services.html">School Uniforms</a>
+                        <a href="services.html">Sports Goods</a>
+                        <a href="services.html">Trophies & Medals</a>
+                        <a href="services.html">Branding & Signage</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h5>Contact Info</h5>
+                    <div class="footer-links">
+                        <a href="tel:+254722801926">📞 +254 722 801 926</a>
+                        <a href="mailto:primehoodsupplies@gmail.com">✉️ primehoodsupplies@gmail.com</a>
+                        <a href="#">📍 Nairobi, Kenya</a>
+                        <a href="https://wa.me/254722801926">💬 WhatsApp Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Prime Hood Supplies. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

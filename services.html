@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Explore our comprehensive sports services - school uniforms, PE kits, sports equipment, trophies, branding and promotional items.">
+    <title>Our Services | Prime Hood Supplies</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>">
+
+    <style>
+        .service-detail {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--space-12);
+            align-items: center;
+            padding: var(--space-16) 0;
+            border-bottom: 1px solid var(--gray-200);
+        }
+
+        .service-detail:nth-child(even) {
+            direction: rtl;
+        }
+
+        .service-detail:nth-child(even)>* {
+            direction: ltr;
+        }
+
+        .service-detail:last-child {
+            border-bottom: none;
+        }
+
+        .service-detail-image {
+            position: relative;
+            border-radius: var(--radius-2xl);
+            overflow: hidden;
+            aspect-ratio: 4/3;
+        }
+
+        .service-detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .service-detail-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: var(--gradient-primary);
+            opacity: 0.1;
+        }
+
+        .service-detail-content h3 {
+            font-size: var(--text-3xl);
+            margin-bottom: var(--space-4);
+        }
+
+        .service-detail-content .lead {
+            font-size: var(--text-lg);
+            color: var(--gray-600);
+            margin-bottom: var(--space-6);
+        }
+
+        .service-list {
+            display: grid;
+            gap: var(--space-3);
+        }
+
+        .service-list-item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--space-3);
+        }
+
+        .service-list-item .icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(0, 212, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent);
+            font-size: 12px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .pricing-note {
+            margin-top: var(--space-6);
+            padding: var(--space-4);
+            background: var(--gray-100);
+            border-radius: var(--radius-lg);
+            font-size: var(--text-sm);
+            color: var(--gray-600);
+        }
+
+        .pricing-note strong {
+            color: var(--primary);
+        }
+
+        @media (max-width: 992px) {
+
+            .service-detail,
+            .service-detail:nth-child(even) {
+                grid-template-columns: 1fr;
+                direction: ltr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">P</div>
+                <div class="logo-text">Prime<span>Hood</span></div>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html" class="active">Services</a>
+                <a href="equipment.html">Equipment</a>
+                <a href="contact.html">Contact</a>
+                <div class="nav-cta">
+                    <a href="contact.html" class="btn btn-primary btn-sm">Get Quote</a>
+                </div>
+            </div>
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="page-hero" style="background: var(--gradient-dark); padding: 160px 0 80px; text-align: center;">
+        <div class="container">
+            <span class="overline" style="color: var(--accent);">What We Offer</span>
+            <h1 style="color: var(--white); margin-bottom: var(--space-4);">Our Services</h1>
+            <p style="color: var(--gray-300); max-width: 600px; margin: 0 auto; font-size: var(--text-lg);">
+                Comprehensive sports solutions from uniforms to equipment, branding to awards.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Overview -->
+    <section class="services section" style="background: var(--gray-100);" id="overview">
+        <div class="container">
+            <div class="services-grid stagger">
+                <a href="#uniforms" class="service-card" style="text-decoration: none;">
+                    <div class="service-icon">👕</div>
+                    <h4>School Uniforms</h4>
+                    <p>Custom uniforms & PE kits for schools</p>
+                </a>
+                <a href="#sports" class="service-card" style="text-decoration: none;">
+                    <div class="service-icon">⚽</div>
+                    <h4>Sports Goods</h4>
+                    <p>Equipment for all sports</p>
+                </a>
+                <a href="#trophies" class="service-card" style="text-decoration: none;">
+                    <div class="service-icon">🏆</div>
+                    <h4>Trophies & Medals</h4>
+                    <p>Awards for events & competitions</p>
+                </a>
+                <a href="#branding" class="service-card" style="text-decoration: none;">
+                    <div class="service-icon">🎨</div>
+                    <h4>Branding & Signage</h4>
+                    <p>Team branding & promotional items</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Details -->
+    <section class="section" id="services-details">
+        <div class="container">
+
+            <!-- School Uniforms -->
+            <div class="service-detail fade-in" id="uniforms">
+                <div class="service-detail-image">
+                    <img src="assets/images/WhatsApp Image 2026-01-13 at 11.45.13 AM.jpeg" alt="School Uniforms">
+                </div>
+                <div class="service-detail-content">
+                    <span class="overline">Education Sector</span>
+                    <h3>School Uniforms & PE Kits</h3>
+                    <p class="lead">High-quality school uniforms and physical education kits custom-made to your
+                        institution's specifications.</p>
+                    <div class="service-list">
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span>Custom designed to match school colors and logos</span>
+                        </div>
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span>Durable, comfortable fabrics for active students</span>
+                        </div>
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span>Complete PE kits including shorts, t-shirts, and tracksuits</span>
+                        </div>
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span>Bulk orders with competitive pricing</span>
+                        </div>
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span>Sports shoes and accessories included</span>
+                        </div>
+                    </div>
+                    <div class="pricing-note">
+                        <strong>💡 Bulk Discount:</strong> Orders of 100+ units receive special institutional pricing.
+                        Contact us for a custom quote.
+                    </div>
+                    <div style="margin-top: var(--space-6);">
+                        <a href="contact.html" class="btn btn-primary">Request Quote →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sports Goods -->
+            <div class="service-detail fade-in" id="sports">
+                <div class="service-detail-image">
+                    <img src="assets/images/p22.jpeg" alt="Sports Equipment">
+                </div>
+                <div class="service-detail-content">
+                    <span class="overline">All Sports</span>
+                    <h3>Sports Goods & Equipment</h3>
+                    <p class="lead">Comprehensive range of sports equipment from world-leading brands for all types of
+                        sports and activities.</p>
+                    <div class="service-list">
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span><strong>Football:</strong> Balls, boots, goalkeeper gloves, goals, training
+                                gear</span>
+                        </div>
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span><strong>Basketball:</strong> Balls, hoops, shoes, jerseys</span>
+                        </div>
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span><strong>Volleyball:</strong> Balls, nets, poles, knee pads</span>
+                        </div>
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span><strong>Athletics:</strong> Track equipment, training gear, shoes</span>
+                        </div>
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span><strong>Tennis & Badminton:</strong> Rackets, balls, nets, accessories</span>
+                        </div>
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span><strong>Handball:</strong> Balls, goals, protective gear</span>
+                        </div>
+                    </div>
+                    <div class="pricing-note">
+                        <strong>🏷️ Brands:</strong> Adidas, Nike, Puma, Mizuno, Reebok, Kempa, Uhlsport, Admiral, and
+                        more.
+                    </div>
+                    <div style="margin-top: var(--space-6);">
+                        <a href="equipment.html" class="btn btn-primary">Browse Equipment →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trophies & Medals -->
+            <div class="service-detail fade-in" id="trophies">
+                <div class="service-detail-image">
+                    <img src="assets/images/WhatsApp Image 2026-01-13 at 12.10.08 PM.jpeg" alt="Trophies and Medals">
+                </div>
+                <div class="service-detail-content">
+                    <span class="overline">Awards & Recognition</span>
+                    <h3>Trophies, Medals & Awards</h3>
+                    <p class="lead">Celebrate achievements with stunning custom trophies, medals, and awards for sports
+                        events and corporate functions.</p>
+                    <div class="service-list">
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span>Gold, silver, and bronze medals in various designs</span>
+                        </div>
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span>Custom engraving with names, dates, and logos</span>
+                        </div>
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span>Championship cups and floating trophies</span>
+                        </div>
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span>Crystal awards and plaques</span>
+                        </div>
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span>Ribbons, lanyards, and certificate holders</span>
+                        </div>
+                    </div>
+                    <div class="pricing-note">
+                        <strong>⏰ Fast Turnaround:</strong> Rush orders available for last-minute events. We understand
+                        the importance of timely delivery.
+                    </div>
+                    <div style="margin-top: var(--space-6);">
+                        <a href="contact.html" class="btn btn-primary">Order Awards →</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Branding & Signage -->
+            <div class="service-detail fade-in" id="branding">
+                <div class="service-detail-image">
+                    <img src="assets/images/WhatsApp Image 2026-01-13 at 12.30.00 PM.jpeg" alt="Branding Services">
+                </div>
+                <div class="service-detail-content">
+                    <span class="overline">Corporate & Events</span>
+                    <h3>Branding, Signage & Promotional Items</h3>
+                    <p class="lead">Complete branding solutions to elevate your team's identity and promote your events
+                        effectively.</p>
+                    <div class="service-list">
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span>Team logo design and jersey printing</span>
+                        </div>
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span>Event banners, flags, and backdrops</span>
+                        </div>
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span>Branded sports bags, water bottles, and caps</span>
+                        </div>
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span>Vehicle branding and signage</span>
+                        </div>
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span>Corporate branded merchandise</span>
+                        </div>
+                        <div class="service-list-item">
+                            <span class="icon">✓</span>
+                            <span>Wristbands, keychains, and giveaway items</span>
+                        </div>
+                    </div>
+                    <div class="pricing-note">
+                        <strong>🎨 Full Service:</strong> From design concept to final production, we handle the
+                        complete branding process.
+                    </div>
+                    <div style="margin-top: var(--space-6);">
+                        <a href="contact.html" class="btn btn-primary">Start Your Project →</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section bg-gray" id="process">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="overline">How It Works</span>
+                <h2>Our Simple Process</h2>
+                <p>Getting your sports equipment has never been easier.</p>
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: var(--space-8); text-align: center;"
+                class="stagger">
+                <div style="position: relative;">
+                    <div
+                        style="width: 80px; height: 80px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-4); font-size: var(--text-2xl); color: var(--white); font-weight: 800;">
+                        1</div>
+                    <h4>Consult</h4>
+                    <p style="font-size: var(--text-sm);">Tell us your requirements via call, WhatsApp, or email</p>
+                </div>
+                <div>
+                    <div
+                        style="width: 80px; height: 80px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-4); font-size: var(--text-2xl); color: var(--white); font-weight: 800;">
+                        2</div>
+                    <h4>Quote</h4>
+                    <p style="font-size: var(--text-sm);">Receive a detailed quotation with competitive pricing</p>
+                </div>
+                <div>
+                    <div
+                        style="width: 80px; height: 80px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-4); font-size: var(--text-2xl); color: var(--white); font-weight: 800;">
+                        3</div>
+                    <h4>Confirm</h4>
+                    <p style="font-size: var(--text-sm);">Approve the quote and make payment via M-Pesa or bank</p>
+                </div>
+                <div>
+                    <div
+                        style="width: 80px; height: 80px; background: var(--gradient-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto var(--space-4); font-size: var(--text-2xl); color: var(--white); font-weight: 800;">
+                        4</div>
+                    <h4>Deliver</h4>
+                    <p style="font-size: var(--text-sm);">Receive your order delivered to your location</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-dark" id="cta">
+        <div class="container text-center">
+            <h2>Need a Custom Solution?</h2>
+            <p style="max-width: 600px; margin: var(--space-6) auto var(--space-8);">
+                Every team is unique. Let's discuss your specific requirements and create a tailored solution.
+            </p>
+            <div class="flex justify-center gap-4" style="flex-wrap: wrap;">
+                <a href="contact.html" class="btn btn-primary btn-lg">Get a Free Quote</a>
+                <a href="tel:+254722801926" class="btn btn-secondary btn-lg">📞 Call: 0722 801 926</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">P</div>
+                        <div class="logo-text">Prime<span>Hood</span></div>
+                    </a>
+                    <p>Kenya's premier sports equipment supplier. Quality gear from global brands.</p>
+                    <div class="payment-methods">
+                        <span>Pay via:</span>
+                        <div class="payment-badge">📱 M-Pesa: 522533</div>
+                        <div class="payment-badge">🏦 KCB: 7950831</div>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h5>Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="services.html">Our Services</a>
+                        <a href="equipment.html">Equipment</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h5>Services</h5>
+                    <div class="footer-links">
+                        <a href="#uniforms">School Uniforms</a>
+                        <a href="#sports">Sports Goods</a>
+                        <a href="#trophies">Trophies & Medals</a>
+                        <a href="#branding">Branding & Signage</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h5>Contact Info</h5>
+                    <div class="footer-links">
+                        <a href="tel:+254722801926">📞 +254 722 801 926</a>
+                        <a href="mailto:primehoodsupplies@gmail.com">✉️ primehoodsupplies@gmail.com</a>
+                        <a href="#">📍 Nairobi, Kenya</a>
+                        <a href="https://wa.me/254722801926">💬 WhatsApp Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Prime Hood Supplies. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

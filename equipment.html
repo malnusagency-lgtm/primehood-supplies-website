@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Browse our extensive catalog of sports equipment from Adidas, Nike, Puma, and more. Quality gear for every sport.">
+    <title>Equipment Catalog | Prime Hood Supplies</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🏆</text></svg>">
+
+    <style>
+        .equipment-hero {
+            background: var(--gradient-dark);
+            padding: 160px 0 80px;
+        }
+
+        .filter-bar {
+            display: flex;
+            gap: var(--space-4);
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: var(--space-10);
+            padding: var(--space-4);
+            background: var(--gray-100);
+            border-radius: var(--radius-xl);
+        }
+
+        .filter-btn {
+            padding: var(--space-3) var(--space-6);
+            background: var(--white);
+            border: 1px solid var(--gray-300);
+            border-radius: var(--radius-full);
+            font-family: var(--font-heading);
+            font-size: var(--text-sm);
+            font-weight: 500;
+            color: var(--gray-600);
+            cursor: pointer;
+            transition: all var(--transition-base);
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--primary);
+            border-color: var(--primary);
+            color: var(--white);
+        }
+
+        .equipment-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--space-6);
+        }
+
+        .equipment-card {
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: all var(--transition-base);
+            border: 1px solid var(--gray-200);
+        }
+
+        .equipment-card:hover {
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+
+        .equipment-image {
+            position: relative;
+            aspect-ratio: 1;
+            overflow: hidden;
+            background: var(--gray-100);
+        }
+
+        .equipment-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+        }
+
+        .equipment-card:hover .equipment-image img {
+            transform: scale(1.08);
+        }
+
+        .equipment-badge {
+            position: absolute;
+            top: var(--space-3);
+            left: var(--space-3);
+            padding: var(--space-1) var(--space-3);
+            background: var(--primary);
+            color: var(--white);
+            font-size: var(--text-xs);
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            text-transform: uppercase;
+        }
+
+        .equipment-info {
+            padding: var(--space-5);
+        }
+
+        .equipment-category {
+            font-size: var(--text-xs);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: var(--space-2);
+        }
+
+        .equipment-name {
+            font-family: var(--font-heading);
+            font-size: var(--text-lg);
+            font-weight: 600;
+            color: var(--gray-800);
+            margin-bottom: var(--space-2);
+        }
+
+        .equipment-description {
+            font-size: var(--text-sm);
+            color: var(--gray-500);
+            margin-bottom: var(--space-4);
+            line-height: 1.5;
+        }
+
+        .equipment-brands {
+            display: flex;
+            gap: var(--space-2);
+            flex-wrap: wrap;
+            margin-bottom: var(--space-4);
+        }
+
+        .equipment-brands span {
+            font-size: var(--text-xs);
+            padding: var(--space-1) var(--space-2);
+            background: var(--gray-100);
+            border-radius: var(--radius-sm);
+            color: var(--gray-600);
+        }
+
+        .equipment-cta {
+            display: flex;
+            gap: var(--space-2);
+        }
+
+        .equipment-cta .btn {
+            flex: 1;
+            padding: var(--space-2) var(--space-4);
+            font-size: var(--text-sm);
+        }
+
+        .brands-showcase {
+            background: var(--gray-100);
+            padding: var(--space-12) 0;
+        }
+
+        .brands-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: var(--space-8);
+            align-items: center;
+        }
+
+        .brand-item {
+            text-align: center;
+            padding: var(--space-6);
+            background: var(--white);
+            border-radius: var(--radius-xl);
+            transition: all var(--transition-base);
+        }
+
+        .brand-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .brand-item img {
+            height: 40px;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.7;
+            transition: all var(--transition-base);
+        }
+
+        .brand-item:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+        }
+
+        @media (max-width: 1200px) {
+            .equipment-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .brands-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .equipment-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .brands-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .equipment-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .brands-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">P</div>
+                <div class="logo-text">Prime<span>Hood</span></div>
+            </a>
+            <div class="nav-links" id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="equipment.html" class="active">Equipment</a>
+                <a href="contact.html">Contact</a>
+                <div class="nav-cta">
+                    <a href="contact.html" class="btn btn-primary btn-sm">Get Quote</a>
+                </div>
+            </div>
+            <div class="mobile-toggle" id="mobileToggle">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Hero -->
+    <section class="equipment-hero">
+        <div class="container text-center">
+            <span class="overline" style="color: var(--accent);">Premium Gear</span>
+            <h1 style="color: var(--white); margin-bottom: var(--space-4);">Equipment Catalog</h1>
+            <p style="color: var(--gray-300); max-width: 600px; margin: 0 auto; font-size: var(--text-lg);">
+                Browse our extensive range of sports equipment from the world's leading brands.
+            </p>
+        </div>
+    </section>
+
+    <!-- Equipment Catalog -->
+    <section class="section" id="catalog">
+        <div class="container">
+
+            <!-- Filter Bar -->
+            <div class="filter-bar">
+                <button class="filter-btn active" data-filter="all">All Products</button>
+                <button class="filter-btn" data-filter="football">Football</button>
+                <button class="filter-btn" data-filter="basketball">Basketball</button>
+                <button class="filter-btn" data-filter="volleyball">Volleyball</button>
+                <button class="filter-btn" data-filter="athletics">Athletics</button>
+                <button class="filter-btn" data-filter="apparel">Apparel</button>
+                <button class="filter-btn" data-filter="accessories">Accessories</button>
+            </div>
+
+            <!-- Equipment Grid -->
+            <div class="equipment-grid stagger">
+
+                <!-- Goalkeeper Gloves -->
+                <div class="equipment-card" data-category="football">
+                    <div class="equipment-image">
+                        <div class="equipment-badge">Popular</div>
+                        <img src="assets/images/p22.jpeg" alt="Goalkeeper Gloves">
+                    </div>
+                    <div class="equipment-info">
+                        <span class="equipment-category">Football</span>
+                        <h4 class="equipment-name">Goalkeeper Gloves</h4>
+                        <p class="equipment-description">Professional goalkeeper gloves with excellent grip and
+                            protection.</p>
+                        <div class="equipment-brands">
+                            <span>Adidas</span>
+                            <span>Nike</span>
+                            <span>Uhlsport</span>
+                            <span>Reusch</span>
+                        </div>
+                        <div class="equipment-cta">
+                            <a href="contact.html" class="btn btn-primary">Inquire</a>
+                            <a href="https://wa.me/254722801926" class="btn btn-outline">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Jerseys -->
+                <div class="equipment-card" data-category="apparel">
+                    <div class="equipment-image">
+                        <div class="equipment-badge">Best Seller</div>
+                        <img src="assets/images/WhatsApp Image 2026-01-13 at 11.45.13 AM.jpeg" alt="Team Jerseys">
+                    </div>
+                    <div class="equipment-info">
+                        <span class="equipment-category">Team Wear</span>
+                        <h4 class="equipment-name">Team Jerseys & Kits</h4>
+                        <p class="equipment-description">Complete team kits with customizable designs and logos.</p>
+                        <div class="equipment-brands">
+                            <span>Adidas</span>
+                            <span>Puma</span>
+                            <span>Nike</span>
+                            <span>Kelme</span>
+                        </div>
+                        <div class="equipment-cta">
+                            <a href="contact.html" class="btn btn-primary">Inquire</a>
+                            <a href="https://wa.me/254722801926" class="btn btn-outline">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Trophies -->
+                <div class="equipment-card" data-category="accessories">
+                    <div class="equipment-image">
+                        <img src="assets/images/WhatsApp Image 2026-01-13 at 12.10.08 PM.jpeg"
+                            alt="Trophies Collection">
+                    </div>
+                    <div class="equipment-info">
+                        <span class="equipment-category">Awards</span>
+                        <h4 class="equipment-name">Trophies & Medals</h4>
+                        <p class="equipment-description">Custom trophies and medals for tournaments and events.</p>
+                        <div class="equipment-brands">
+                            <span>Custom Made</span>
+                            <span>Engraving</span>
+                        </div>
+                        <div class="equipment-cta">
+                            <a href="contact.html" class="btn btn-primary">Inquire</a>
+                            <a href="https://wa.me/254722801926" class="btn btn-outline">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Football Boots -->
+                <div class="equipment-card" data-category="football">
+                    <div class="equipment-image">
+                        <img src="assets/images/p6.jpeg" alt="Football Equipment">
+                    </div>
+                    <div class="equipment-info">
+                        <span class="equipment-category">Footwear</span>
+                        <h4 class="equipment-name">Football Boots</h4>
+                        <p class="equipment-description">Professional football boots for all playing surfaces.</p>
+                        <div class="equipment-brands">
+                            <span>Adidas</span>
+                            <span>Nike</span>
+                            <span>Puma</span>
+                        </div>
+                        <div class="equipment-cta">
+                            <a href="contact.html" class="btn btn-primary">Inquire</a>
+                            <a href="https://wa.me/254722801926" class="btn btn-outline">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Footballs -->
+                <div class="equipment-card" data-category="football">
+                    <div class="equipment-image">
+                        <div class="equipment-badge">New</div>
+                        <img src="assets/images/p7.jpeg" alt="Footballs">
+                    </div>
+                    <div class="equipment-info">
+                        <span class="equipment-category">Football</span>
+                        <h4 class="equipment-name">Match & Training Balls</h4>
+                        <p class="equipment-description">FIFA-approved match balls and durable training balls.</p>
+                        <div class="equipment-brands">
+                            <span>Adidas</span>
+                            <span>Nike</span>
+                            <span>Puma</span>
+                            <span>Molten</span>
+                        </div>
+                        <div class="equipment-cta">
+                            <a href="contact.html" class="btn btn-primary">Inquire</a>
+                            <a href="https://wa.me/254722801926" class="btn btn-outline">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Training Gear -->
+                <div class="equipment-card" data-category="athletics">
+                    <div class="equipment-image">
+                        <img src="assets/images/p3.jpeg" alt="Training Gear">
+                    </div>
+                    <div class="equipment-info">
+                        <span class="equipment-category">Training</span>
+                        <h4 class="equipment-name">Training Equipment</h4>
+                        <p class="equipment-description">Cones, ladders, hurdles, and comprehensive training gear.</p>
+                        <div class="equipment-brands">
+                            <span>Adidas</span>
+                            <span>Nike</span>
+                            <span>Generic</span>
+                        </div>
+                        <div class="equipment-cta">
+                            <a href="contact.html" class="btn btn-primary">Inquire</a>
+                            <a href="https://wa.me/254722801926" class="btn btn-outline">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sports Bags -->
+                <div class="equipment-card" data-category="accessories">
+                    <div class="equipment-image">
+                        <img src="assets/images/p8.jpeg" alt="Sports Bags">
+                    </div>
+                    <div class="equipment-info">
+                        <span class="equipment-category">Accessories</span>
+                        <h4 class="equipment-name">Sports Bags</h4>
+                        <p class="equipment-description">Team bags, kit bags, and individual sports bags.</p>
+                        <div class="equipment-brands">
+                            <span>Adidas</span>
+                            <span>Nike</span>
+                            <span>Puma</span>
+                        </div>
+                        <div class="equipment-cta">
+                            <a href="contact.html" class="btn btn-primary">Inquire</a>
+                            <a href="https://wa.me/254722801926" class="btn btn-outline">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tracksuits -->
+                <div class="equipment-card" data-category="apparel">
+                    <div class="equipment-image">
+                        <img src="assets/images/p1.jpeg" alt="Tracksuits">
+                    </div>
+                    <div class="equipment-info">
+                        <span class="equipment-category">Apparel</span>
+                        <h4 class="equipment-name">Tracksuits & Warmups</h4>
+                        <p class="equipment-description">Professional tracksuits for teams and institutions.</p>
+                        <div class="equipment-brands">
+                            <span>Adidas</span>
+                            <span>Puma</span>
+                            <span>Under Armour</span>
+                        </div>
+                        <div class="equipment-cta">
+                            <a href="contact.html" class="btn btn-primary">Inquire</a>
+                            <a href="https://wa.me/254722801926" class="btn btn-outline">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Load More / CTA -->
+            <div class="text-center" style="margin-top: var(--space-12);">
+                <p style="color: var(--gray-500); margin-bottom: var(--space-4);">Can't find what you're looking for?
+                </p>
+                <a href="contact.html" class="btn btn-primary btn-lg">Request Custom Quote →</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Brands Showcase -->
+    <section class="brands-showcase" id="brands">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="overline">Our Partners</span>
+                <h2>Trusted Brands</h2>
+                <p>We're authorized distributors for the world's leading sports brands.</p>
+            </div>
+
+            <div class="brands-grid stagger">
+                <div class="brand-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Adidas_Logo.svg" alt="Adidas">
+                </div>
+                <div class="brand-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg" alt="Nike">
+                </div>
+                <div class="brand-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/8/88/Puma_logo.svg" alt="Puma">
+                </div>
+                <div class="brand-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Mizuno_logo.svg" alt="Mizuno">
+                </div>
+                <div class="brand-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Reebok_2019_logo.svg" alt="Reebok">
+                </div>
+                <div class="brand-item">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Under_armour_logo.svg"
+                        alt="Under Armour">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section section-dark" id="cta">
+        <div class="container text-center">
+            <h2>Need Bulk Equipment?</h2>
+            <p style="max-width: 600px; margin: var(--space-6) auto var(--space-8);">
+                Schools, teams, and organizations get special wholesale pricing on bulk orders.
+            </p>
+            <div class="flex justify-center gap-4" style="flex-wrap: wrap;">
+                <a href="contact.html" class="btn btn-primary btn-lg">Request Wholesale Quote</a>
+                <a href="tel:+254722801926" class="btn btn-secondary btn-lg">📞 Call: 0722 801 926</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="index.html" class="logo">
+                        <div class="logo-icon">P</div>
+                        <div class="logo-text">Prime<span>Hood</span></div>
+                    </a>
+                    <p>Kenya's premier sports equipment supplier. Quality gear from global brands.</p>
+                    <div class="payment-methods">
+                        <span>Pay via:</span>
+                        <div class="payment-badge">📱 M-Pesa: 522533</div>
+                        <div class="payment-badge">🏦 KCB: 7950831</div>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h5>Quick Links</h5>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="about.html">About Us</a>
+                        <a href="services.html">Our Services</a>
+                        <a href="equipment.html">Equipment</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h5>Categories</h5>
+                    <div class="footer-links">
+                        <a href="#" data-filter="football">Football</a>
+                        <a href="#" data-filter="basketball">Basketball</a>
+                        <a href="#" data-filter="volleyball">Volleyball</a>
+                        <a href="#" data-filter="apparel">Apparel</a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h5>Contact Info</h5>
+                    <div class="footer-links">
+                        <a href="tel:+254722801926">📞 +254 722 801 926</a>
+                        <a href="mailto:primehoodsupplies@gmail.com">✉️ primehoodsupplies@gmail.com</a>
+                        <a href="#">📍 Nairobi, Kenya</a>
+                        <a href="https://wa.me/254722801926">💬 WhatsApp Us</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2026 Prime Hood Supplies. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script>
+        // Equipment Filter Functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const filterBtns = document.querySelectorAll('.filter-btn');
+            const equipmentCards = document.querySelectorAll('.equipment-card');
+
+            filterBtns.forEach(btn => {
+                btn.addEventListener('click', function () {
+                    // Update active state
+                    filterBtns.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+
+                    const filter = this.dataset.filter;
+
+                    // Filter cards
+                    equipmentCards.forEach(card => {
+                        if (filter === 'all' || card.dataset.category === filter) {
+                            card.style.display = 'block';
+                            card.style.animation = 'fadeIn 0.5s ease';
+                        } else {
+                            card.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
