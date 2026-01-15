@@ -10,74 +10,74 @@ import Button from "@/components/Button";
 const products = [
     {
         id: 1,
-        name: "Goalkeeper Gloves",
+        name: "Puma Goalkeeper Gloves",
         category: "football",
-        description: "Professional goalkeeper gloves with excellent grip and protection.",
+        description: "Superior quality gloves for professional goalkeepers.",
         image: "/images/p22.jpeg",
-        brands: ["Adidas", "Nike", "Uhlsport", "Reusch"],
+        brands: ["Puma"],
         tag: "Popular"
     },
     {
         id: 2,
-        name: "Team Jerseys & Kits",
+        name: "FBT Sublimated Soccer Uniform",
         category: "apparel",
-        description: "Complete team kits with customizable designs and logos.",
+        description: "Complete team kit including jersey, shorts, and socks. Fully branded.",
         image: "/images/WhatsApp Image 2026-01-13 at 11.45.13 AM.jpeg",
-        brands: ["Adidas", "Puma", "Nike", "Kelme"],
+        brands: ["FBT"],
         tag: "Best Seller"
     },
     {
         id: 3,
-        name: "Trophies & Medals",
+        name: "Custom Trophies & Medals",
         category: "accessories",
-        description: "Custom trophies and medals for tournaments and events.",
+        description: "High-quality awards for tournaments. Engraving available.",
         image: "/images/WhatsApp Image 2026-01-13 at 12.10.08 PM.jpeg",
-        brands: ["Custom Made", "Engraving"],
+        brands: ["Custom"],
         tag: null
     },
     {
         id: 4,
-        name: "Football Boots",
+        name: "Adidas Copa Mundial",
         category: "football",
-        description: "Professional football boots for all playing surfaces.",
+        description: "Legendary football boots. Size 5-11 available.",
         image: "/images/p6.jpeg",
-        brands: ["Adidas", "Nike", "Puma"],
-        tag: null
+        brands: ["Adidas"],
+        tag: "Classic"
     },
     {
         id: 5,
-        name: "Match & Training Balls",
+        name: "Umbro Neo 150 Pro",
         category: "football",
-        description: "FIFA-approved match balls and durable training balls.",
+        description: "FIFA Approved match ball for top-tier competition.",
         image: "/images/p7.jpeg",
-        brands: ["Adidas", "Nike", "Puma", "Molten"],
-        tag: "New"
+        brands: ["Umbro"],
+        tag: "Pro Grade"
     },
     {
         id: 6,
-        name: "Training Equipment",
+        name: "Athletics Training Gear",
         category: "athletics",
-        description: "Cones, ladders, hurdles, and comprehensive training gear.",
+        description: "Hurdles, starting blocks, and training cones from India.",
         image: "/images/p3.jpeg",
-        brands: ["Adidas", "Nike", "Generic"],
+        brands: ["Generic"],
         tag: null
     },
     {
         id: 7,
-        name: "Sports Bags",
+        name: "Team Kit Bags",
         category: "accessories",
-        description: "Team bags, kit bags, and individual sports bags.",
+        description: "Durable sports bags for team equipment transport.",
         image: "/images/p8.jpeg",
-        brands: ["Adidas", "Nike", "Puma"],
+        brands: ["Nike", "Adidas"],
         tag: null
     },
     {
         id: 8,
-        name: "Tracksuits & Warmups",
+        name: "Adidas Tracksuits",
         category: "apparel",
-        description: "Professional tracksuits for teams and institutions.",
+        description: "Professional warm-up tracksuits for teams.",
         image: "/images/p1.jpeg",
-        brands: ["Adidas", "Puma", "Under Armour"],
+        brands: ["Adidas"],
         tag: null
     }
 ];
@@ -148,8 +148,8 @@ export default function EquipmentPage() {
                                 key={cat.id}
                                 onClick={() => setFilter(cat.id)}
                                 className={`px-6 py-2 rounded-full text-sm font-bold transition-all duration-300 ${filter === cat.id
-                                        ? "bg-primary text-white shadow-lg shadow-primary/30"
-                                        : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                                    ? "bg-primary text-white shadow-lg shadow-primary/30"
+                                    : "bg-gray-100 text-gray-600 hover:bg-gray-200"
                                     }`}
                             >
                                 {cat.label}
@@ -239,6 +239,16 @@ export default function EquipmentPage() {
                         </button>
                     </div>
                 )}
+
+                <div className="mt-12 text-center">
+                    <p className="text-gray-500 mb-4">Looking for full pricing details?</p>
+                    <Link
+                        href="/catalogue"
+                        className="inline-flex items-center gap-2 text-primary font-bold hover:gap-3 transition-all"
+                    >
+                        View Full Pricing Catalogue →
+                    </Link>
+                </div>
             </section>
 
             {/* Brands Marquee Placeholder (Reuse component later if needed or just simple grid) */}
