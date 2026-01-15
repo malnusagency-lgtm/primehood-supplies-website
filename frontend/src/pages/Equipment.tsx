@@ -6,20 +6,20 @@ import { motion, AnimatePresence } from "framer-motion";
 const products = [
     {
         id: 1,
-        name: "Puma Goalkeeper Gloves",
+        name: "Professional Football Gear",
         category: "football",
-        description: "Superior quality gloves for professional goalkeepers.",
-        image: "/images/p22.jpeg",
-        brands: ["Puma"],
+        description: "Superior quality gloves, boots, and FIFA approved match balls.",
+        image: "/images/football_gear.png",
+        brands: ["Puma", "Adidas", "Nike"],
         tag: "Popular"
     },
     {
         id: 2,
-        name: "FBT Sublimated Soccer Uniform",
+        name: "Custom Team Uniforms",
         category: "apparel",
-        description: "Complete team kit including jersey, shorts, and socks. Fully branded.",
-        image: "/images/WhatsApp Image 2026-01-13 at 11.45.13 AM.jpeg",
-        brands: ["FBT"],
+        description: "Complete team kits including jerseys, shorts, and socks. Fully sublimated.",
+        image: "/images/uniforms.png",
+        brands: ["FBT", "Custom"],
         tag: "Best Seller"
     },
     {
@@ -27,55 +27,20 @@ const products = [
         name: "Custom Trophies & Medals",
         category: "accessories",
         description: "High-quality awards for tournaments. Engraving available.",
-        image: "/images/WhatsApp Image 2026-01-13 at 12.10.08 PM.jpeg",
+        image: "/images/trophies.png",
         brands: ["Custom"],
         tag: null
     },
     {
         id: 4,
-        name: "Adidas Copa Mundial",
-        category: "football",
-        description: "Legendary football boots. Size 5-11 available.",
-        image: "/images/p6.jpeg",
-        brands: ["Adidas"],
-        tag: "Classic"
-    },
-    {
-        id: 5,
-        name: "Umbro Neo 150 Pro",
-        category: "football",
-        description: "FIFA Approved match ball for top-tier competition.",
-        image: "/images/p7.jpeg",
-        brands: ["Umbro"],
-        tag: "Pro Grade"
-    },
-    {
-        id: 6,
         name: "Athletics Training Gear",
         category: "athletics",
-        description: "Hurdles, starting blocks, and training cones from India.",
-        image: "/images/p3.jpeg",
+        description: "Hurdles, starting blocks, and training spikes.",
+        image: "/images/athletics_gear.png",
         brands: ["Generic"],
         tag: null
     },
-    {
-        id: 7,
-        name: "Team Kit Bags",
-        category: "accessories",
-        description: "Durable sports bags for team equipment transport.",
-        image: "/images/p8.jpeg",
-        brands: ["Nike", "Adidas"],
-        tag: null
-    },
-    {
-        id: 8,
-        name: "Adidas Tracksuits",
-        category: "apparel",
-        description: "Professional warm-up tracksuits for teams.",
-        image: "/images/p1.jpeg",
-        brands: ["Adidas"],
-        tag: null
-    }
+
 ];
 
 const categories = [
@@ -121,7 +86,7 @@ export default function Equipment() {
                         transition={{ delay: 0.1 }}
                         className="text-5xl font-heading font-bold text-white mb-6"
                     >
-                        Equipment Catalog
+                        Our Equipment
                     </motion.h1>
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
